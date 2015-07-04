@@ -20,9 +20,12 @@ shinyUI(fluidPage(
                   selected = sample(package_names, 2), # initialize the graph with a random package
                   choices = package_names,
                   multiple = TRUE),      
+      dateInput('date_from',
+                label = 'Date input: yyyy-mm-dd',
+                value = Sys.Date()-90),
       radioButtons("transformation", 
                  "Data Transformation:",
-                 c("Daily" = "daily", "Weekly" = "weekly", "Cumulative" = "cumulative")),
+                 c("Daily" = "daily", "Weekly" = "weekly", "Monthly" = "monthly", "Cumulative" = "cumulative")),
       HTML("Created using the <a href='https://github.com/metacran/cranlogs'>cranlogs</a> package.",
            "This app is not affiliated with RStudio or CRAN.",
            "You can find the code for the app <a href='https://github.com/dgrtwo/cranview'>here</a>,",
